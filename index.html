@@ -594,6 +594,117 @@ footer {
 .footer-logo .l-human { color: var(--human); }
 .footer-logo .l-muted { color: var(--muted); }
 
+/* ── BADGES ── */
+.badges-section {
+  position: relative; z-index: 1;
+  max-width: 760px; margin: 0 auto;
+  padding: 0 24px 48px;
+}
+.badges-intro {
+  text-align: center; margin-bottom: 28px;
+}
+.badges-intro h3 {
+  font-family: 'Anybody', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: -0.02em; color: var(--text);
+  margin-bottom: 6px;
+}
+.badges-intro p {
+  font-size: 0.78rem; color: var(--muted); line-height: 1.6;
+}
+.badges-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 12px; margin-bottom: 24px;
+}
+.badge-preview {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 20px 16px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 12px;
+  transition: border-color 0.15s;
+}
+.badge-preview:hover { border-color: var(--border2); }
+.badge-preview-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.6rem; color: var(--muted);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+/* Badge Dark Horizontal */
+.bdg-dark {
+  background: #0b0b0b; border: 1px solid #2a2a2a;
+  border-radius: 5px; padding: 9px 12px;
+  display: flex; align-items: center; gap: 10px;
+  width: 100%;
+}
+/* Badge Light Horizontal */
+.bdg-light {
+  background: #f9f7f4; border: 1px solid #d4cfc8;
+  border-radius: 5px; padding: 9px 12px;
+  display: flex; align-items: center; gap: 10px;
+  width: 100%;
+}
+/* Badge Pill */
+.bdg-pill-d {
+  background: #0b0b0b; border: 1px solid #2a2a2a;
+  border-radius: 20px; padding: 6px 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.bdg-pill-l {
+  background: #f9f7f4; border: 1px solid #d4cfc8;
+  border-radius: 20px; padding: 6px 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.bdg-icon { flex-shrink: 0; }
+.bdg-text-wrap { display: flex; flex-direction: column; gap: 1px; }
+.bdg-top {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.52rem; letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.bdg-name {
+  font-family: 'Anybody', sans-serif;
+  font-weight: 700; font-size: 0.78rem; letter-spacing: -0.01em;
+}
+.bdg-bottom {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.48rem; letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.bdg-dark .bdg-top { color: #555; }
+.bdg-dark .bdg-name { color: #f0ede8; }
+.bdg-dark .bdg-name span { color: #00c98d; }
+.bdg-dark .bdg-bottom { color: #333; }
+.bdg-light .bdg-top { color: #a09890; }
+.bdg-light .bdg-name { color: #0f0e0d; }
+.bdg-light .bdg-name span { color: #1a5c38; }
+.bdg-light .bdg-bottom { color: #c0bbb4; }
+.bdg-pill-d .bdg-top { color: #555; }
+.bdg-pill-d .bdg-name { color: #f0ede8; }
+.bdg-pill-d .bdg-name span { color: #00c98d; }
+.bdg-pill-l .bdg-top { color: #a09890; }
+.bdg-pill-l .bdg-name { color: #0f0e0d; }
+.bdg-pill-l .bdg-name span { color: #1a5c38; }
+.bdg-divider { width: 1px; height: 28px; flex-shrink: 0; }
+.bdg-dark .bdg-divider { background: #2a2a2a; }
+.bdg-light .bdg-divider { background: #d4cfc8; }
+.badges-note {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 16px 20px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
+}
+.badges-note-text strong { font-size: 0.82rem; color: var(--text); display: block; margin-bottom: 2px; }
+.badges-note-text span { font-size: 0.72rem; color: var(--muted); }
+.badges-note-btn {
+  font-size: 0.72rem; font-weight: 600;
+  color: var(--human); white-space: nowrap;
+  background: var(--human-dim); border: 1px solid rgba(0,201,141,0.2);
+  padding: 7px 14px; border-radius: 5px; cursor: pointer;
+  font-family: 'Geist', sans-serif; flex-shrink: 0;
+  transition: all 0.15s;
+}
+.badges-note-btn:hover { background: rgba(0,201,141,0.15); }
+
 .footer-links {
   display: flex; gap: 20px; list-style: none; flex-wrap: wrap;
 }
@@ -655,6 +766,76 @@ footer {
   .conf-ring-wrap { text-align: left; }
   .pro-nudge { flex-direction: column; align-items: flex-start; }
 }
+
+/* ── CONTACT MODAL ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 500;
+  background: rgba(0,0,0,0.7); backdrop-filter: blur(6px);
+  align-items: center; justify-content: center; padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: 12px; width: 100%; max-width: 480px;
+  overflow: hidden; animation: fadeUp 0.3s ease both;
+}
+.modal-header {
+  padding: 24px 24px 0;
+  display: flex; align-items: flex-start; justify-content: space-between;
+}
+.modal-header h3 {
+  font-family: 'Anybody', sans-serif; font-weight: 700;
+  font-size: 1.1rem; letter-spacing: -0.02em; color: var(--text);
+  margin-bottom: 4px;
+}
+.modal-header p { font-size: 0.78rem; color: var(--muted); }
+.modal-close {
+  background: none; border: none; color: var(--muted);
+  font-size: 1.2rem; cursor: pointer; line-height: 1;
+  padding: 2px; transition: color 0.15s; flex-shrink: 0;
+}
+.modal-close:hover { color: var(--text); }
+.modal-body { padding: 20px 24px 24px; }
+
+.form-row { margin-bottom: 14px; }
+.form-row label {
+  display: block; font-family: 'Geist Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 6px;
+}
+.form-row input, .form-row textarea, .form-row select {
+  width: 100%; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 6px; padding: 10px 14px; color: var(--text);
+  font-family: 'Geist', sans-serif; font-size: 0.85rem;
+  outline: none; transition: border-color 0.15s;
+}
+.form-row input:focus, .form-row textarea:focus, .form-row select:focus {
+  border-color: var(--human);
+}
+.form-row textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+.form-row select { appearance: none; cursor: pointer; }
+.form-row input::placeholder, .form-row textarea::placeholder { color: var(--muted); }
+
+.form-submit {
+  width: 100%; padding: 13px; background: var(--human);
+  border: none; border-radius: 6px; color: var(--bg);
+  font-family: 'Anybody', sans-serif; font-weight: 700;
+  font-size: 0.9rem; letter-spacing: 0.02em; cursor: pointer;
+  transition: background 0.15s; margin-top: 4px;
+}
+.form-submit:hover { background: #00e5a0; }
+.form-submit:disabled { background: var(--faint); color: var(--muted); cursor: not-allowed; }
+
+.form-success {
+  display: none; text-align: center; padding: 20px 0;
+}
+.form-success-icon { font-size: 2rem; margin-bottom: 12px; }
+.form-success h4 {
+  font-family: 'Anybody', sans-serif; font-weight: 700;
+  font-size: 1rem; color: var(--human); margin-bottom: 6px;
+}
+.form-success p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
 </style>
 </head>
 <body>
@@ -901,8 +1082,86 @@ footer {
         <li>CMS plugins</li>
         <li>SLA & dedicated support</li>
       </ul>
-      <button class="plan-btn btn-dim">Contact sales →</button>
+      <button class="plan-btn btn-dim" onclick="openModal()">Contact sales →</button>
     </div>
+  </div>
+</div>
+
+<!-- BADGES -->
+<div class="badges-section">
+  <div class="badges-intro">
+    <h3>The isithuman.ai trust seal</h3>
+    <p>Enterprise API subscribers receive a verified trust seal to display on their site —<br>signalling to readers that all content has been checked for AI generation.</p>
+  </div>
+
+  <div class="badges-grid">
+    <div class="badge-preview">
+      <div class="bdg-dark" style="max-width:200px;">
+        <div class="bdg-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="10" r="4" stroke="#00c98d" stroke-width="1.4" fill="none"/>
+            <path d="M7 24 C7 17 21 17 21 24" stroke="#00c98d" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <path d="M3 8 L3 4 L7 4" stroke="#00c98d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M21 4 L25 4 L25 8" stroke="#00c98d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M3 20 L3 24 L7 24" stroke="#ff4545" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M21 24 L25 24 L25 20" stroke="#ff4545" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="bdg-divider"></div>
+        <div class="bdg-text-wrap">
+          <span class="bdg-top">Human Verified</span>
+          <span class="bdg-name">isithuman<span>.ai</span></span>
+          <span class="bdg-bottom">Enterprise Certified</span>
+        </div>
+      </div>
+      <div class="badge-preview-label">Dark — for light sites</div>
+    </div>
+
+    <div class="badge-preview">
+      <div class="bdg-light" style="max-width:200px;">
+        <div class="bdg-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="10" r="4" stroke="#1a5c38" stroke-width="1.4" fill="none"/>
+            <path d="M7 24 C7 17 21 17 21 24" stroke="#1a5c38" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <path d="M3 8 L3 4 L7 4" stroke="#1a5c38" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M21 4 L25 4 L25 8" stroke="#1a5c38" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M3 20 L3 24 L7 24" stroke="#7a1a1a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M21 24 L25 24 L25 20" stroke="#7a1a1a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="bdg-divider"></div>
+        <div class="bdg-text-wrap">
+          <span class="bdg-top">Human Verified</span>
+          <span class="bdg-name">isithuman<span>.ai</span></span>
+          <span class="bdg-bottom">Enterprise Certified</span>
+        </div>
+      </div>
+      <div class="badge-preview-label">Light — for dark sites</div>
+    </div>
+
+    <div class="badge-preview">
+      <div class="bdg-pill-d">
+        <div class="bdg-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="8" r="3.5" stroke="#00c98d" stroke-width="1.3" fill="none"/>
+            <path d="M5 19 C5 14 17 14 17 19" stroke="#00c98d" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="bdg-text-wrap">
+          <span class="bdg-top">Verified</span>
+          <span class="bdg-name">isithuman<span>.ai</span></span>
+        </div>
+      </div>
+      <div class="badge-preview-label">Pill — inline / byline</div>
+    </div>
+  </div>
+
+  <div class="badges-note">
+    <div class="badges-note-text">
+      <strong>Enterprise subscribers get all badge formats + embed code</strong>
+      <span>HTML snippet ready to paste · SVG files included · Auto-updates with each verified scan</span>
+    </div>
+    <button class="badges-note-btn" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Get Enterprise →</button>
   </div>
 </div>
 
@@ -955,16 +1214,46 @@ async function runAnalysis() {
   animateScanSteps();
 
   try {
-    const res = await fetch('/api/analyse', {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url })
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: `You are isithuman.ai's URL analysis engine. Analyse the submitted URL and determine if its content is human-authored or AI-generated.
+
+Return ONLY a valid JSON object — no markdown, no preamble:
+{
+  "verdict": "HUMAN" | "AI_GENERATED" | "MIXED",
+  "confidence": <integer 0-100>,
+  "summary": "<2-3 sentence professional analysis>",
+  "domain": [
+    { "key": "Domain age", "value": "<assessment>", "flag": "ok" | "warn" | "mid" },
+    { "key": "Publisher type", "value": "<assessment>", "flag": "ok" | "warn" | "mid" },
+    { "key": "Author signals", "value": "<assessment>", "flag": "ok" | "warn" | "mid" }
+  ],
+  "signals": [
+    { "name": "<signal>", "finding": "<finding>", "level": "HIGH" | "MEDIUM" | "LOW" },
+    { "name": "<signal>", "finding": "<finding>", "level": "HIGH" | "MEDIUM" | "LOW" },
+    { "name": "<signal>", "finding": "<finding>", "level": "HIGH" | "MEDIUM" | "LOW" },
+    { "name": "<signal>", "finding": "<finding>", "level": "HIGH" | "MEDIUM" | "LOW" }
+  ]
+}
+
+For the domain array: analyse the URL structure, domain name patterns, TLD, subdomain signals, and known AI content farm indicators.
+For signals: assess linguistic probability, structural patterns, publishing behaviour inferred from URL, source credibility, content type.
+Be precise and professional. Return ONLY the JSON.`,
+        messages: [{ role: 'user', content: `Analyse this URL for AI-generated content: ${url}\n\nAssess: domain reputation, URL structure patterns, known AI content farm indicators, inferred publishing behaviour, and any signals in the URL itself that suggest automated or AI-generated content.` }]
+      })
     });
 
-    if (!res.ok) throw new Error('API error');
     const data = await res.json();
-    if (data.error) throw new Error(data.error);
-    const result = data;
+    const tb = data.content?.find(c => c.type === 'text');
+    if (!tb) throw new Error('No response');
+
+    let result;
+    try { result = JSON.parse(tb.text.replace(/```json|```/g, '').trim()); }
+    catch { throw new Error('Parse error'); }
 
     hideScanning();
     showResult(result, url);
@@ -1094,6 +1383,104 @@ if (localStorage.getItem('ih_ok')) document.getElementById('cookieBanner').style
 document.getElementById('urlInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') runAnalysis();
 });
+
+// ── CONTACT MODAL ──
+function openModal() {
+  document.getElementById('contactModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('contactModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('contactModal')) closeModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+async function submitForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  const form = document.getElementById('contactForm');
+  const data = new FormData(form);
+
+  try {
+    const res = await fetch('https://formspree.io/f/xjgpyvvb', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+      setTimeout(() => closeModal(), 3500);
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Send enquiry →';
+      alert('Something went wrong. Please try again.');
+    }
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = 'Send enquiry →';
+    alert('Network error. Please try again.');
+  }
+}
+
 </script>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h3>Enterprise API enquiry</h3>
+        <p>We'll get back to you within 24 hours.</p>
+      </div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">✓</div>
+        <h4>Message sent!</h4>
+        <p>Thanks for your interest. We'll be in touch within 24 hours to discuss your Enterprise needs.</p>
+      </div>
+      <form id="contactForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <label>Your name</label>
+          <input type="text" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-row">
+          <label>Work email</label>
+          <input type="email" name="email" placeholder="jane@company.com" required>
+        </div>
+        <div class="form-row">
+          <label>Company / Publication</label>
+          <input type="text" name="company" placeholder="The New York Times">
+        </div>
+        <div class="form-row">
+          <label>Expected monthly scans</label>
+          <select name="volume">
+            <option value="">Select volume...</option>
+            <option>Under 10,000 / month</option>
+            <option>10,000 – 50,000 / month</option>
+            <option>50,000 – 200,000 / month</option>
+            <option>200,000+ / month</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Message (optional)</label>
+          <textarea name="message" placeholder="Tell us about your use case…"></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="isithuman.ai — Enterprise API enquiry">
+        <button type="submit" class="form-submit" id="submitBtn">Send enquiry →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
